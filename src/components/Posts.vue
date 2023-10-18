@@ -15,7 +15,7 @@
                         <v-card-actions class="d-flex justify-center">
 
                             <v-btn color="deep-purple-darken-3" @click="viewPost(post)">
-                                VIEW FULL POST
+                                VIEW FULL PO
                             </v-btn>
 
                         </v-card-actions>
