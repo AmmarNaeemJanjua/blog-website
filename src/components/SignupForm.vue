@@ -1,19 +1,19 @@
 <template>
-    <v-card min-width="400">
+    <v-card min-width="400" variant="flat">
         <v-card-title class="headline">
             Sign Up
         </v-card-title>
         <v-card-text>
             <v-form @submit.prevent="signupForm">
-                <v-text-field v-model="name" label="Name" :rules="nameRules" validate-on="blur"></v-text-field>
+                <v-text-field v-model="name" label="Name" :rules="nameRules" validate-on="blur" variant="outlined"></v-text-field>
 
-                <v-text-field v-model="email" label="Email" :rules="emailRules" validate-on="blur"></v-text-field>
+                <v-text-field v-model="email" label="Email" :rules="emailRules" validate-on="blur" variant="outlined" class="mt-1"></v-text-field>
 
                 <v-text-field label="Password" type="password" v-model="password" :rules="passwordRules"
-                    validate-on="blur"></v-text-field>
+                    validate-on="blur" variant="outlined" class="mt-1"></v-text-field>
 
                 <v-text-field label="Confirm Password" type="password" v-model="confirmpass" :rules="confirmPassRules"
-                    validate-on="blur"></v-text-field>
+                    validate-on="blur" variant="outlined" class="mt-1"></v-text-field>
 
                 <v-btn type="submit" class="mt-1 mb-1" :disabled="!isFormValid" color="indigo">Submit</v-btn>
 
