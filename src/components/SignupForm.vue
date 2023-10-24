@@ -1,39 +1,57 @@
 <template>
-    <v-card min-width="400" variant="flat">
-        <v-card-title class="headline">
-            Sign Up
-        </v-card-title>
-        <v-card-text>
-            <v-form @submit.prevent="signupForm">
-                <v-text-field v-model="name" label="Name" :rules="nameRules" validate-on="blur" variant="outlined"></v-text-field>
+    <v-main>
+        <v-img src="https://cdn.wallpapersafari.com/32/67/uNnmEU.jpg" cover height="100vh">
+            <the-loader v-if="showLoading"></the-loader>
+            <div class="d-flex justify-center align-center" style="height: 100vh;">
+                <v-card min-width="350" variant="tonal" class="elevation-3" style="backdrop-filter: blur(5px);">
+                    <v-card-title class="headline font-weight-bold">
+                        Create Account
+                    </v-card-title>
+                    <v-card-text>
+                        <v-form @submit.prevent="onSignup()">
+                            <v-text-field v-model="name" label="Name" :rules="nameRules" validate-on="blur"
+                                variant="outlined"></v-text-field>
 
-                <v-text-field v-model="email" label="Email" :rules="emailRules" validate-on="blur" variant="outlined" class="mt-1"></v-text-field>
+                            <v-text-field v-model="email" label="Email" :rules="emailRules" validate-on="blur"
+                                variant="outlined" class="mt-1"></v-text-field>
 
-                <v-text-field label="Password" type="password" v-model="password" :rules="passwordRules"
-                    validate-on="blur" variant="outlined" class="mt-1"></v-text-field>
+                            <v-text-field label="Password" type="password" v-model="password" :rules="passwordRules"
+                                validate-on="blur" variant="outlined" class="mt-1"></v-text-field>
 
-                <v-text-field label="Confirm Password" type="password" v-model="confirmpass" :rules="confirmPassRules"
-                    validate-on="blur" variant="outlined" class="mt-1"></v-text-field>
+                            <v-text-field label="Confirm Password" type="password" v-model="confirmpass"
+                                :rules="confirmPassRules" validate-on="blur" variant="outlined" class="mt-1"></v-text-field>
 
-                <v-btn type="submit" class="mt-1 mb-1" :disabled="!isFormValid" color="indigo">Submit</v-btn>
+                            <div>
+                                <v-btn type="submit" class="mt-1 mb-1" :disabled="!isFormValid"
+                                    color="deep-purple-darken-2">Sign Up</v-btn>
+                            </div>
 
-                <p class="mt-2">Already registered? <router-link to="/loginview">Click here to Login</router-link></p>
-            </v-form>
-        </v-card-text>
-    </v-card>
+                            <p class="d-flex justify-center mt-2 font-weight-bold">Already registered? <router-link
+                                    class="ml-1 font-weight-bold" to="/login" style="color: #B39DDB;">Click here to
+                                    Login</router-link></p>
+                        </v-form>
+                    </v-card-text>
+                </v-card>
+            </div>
+        </v-img>
+    </v-main>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapState, mapActions, mapMutations } from 'vuex';
+import TheLoader from '@/components/TheLoader.vue';
 
 export default {
     name: "SignupForm",
-    data: () => ({
-        name: '',
-        email: '',
-        password: '',
-        confirmpass: '',
-    }),
+    components: {
+        TheLoader,
+    },
+    data() {
+        return {
+            email: '',
+            password: '',
+        }
+    },
     computed: {
         nameRules() {
             return [
@@ -64,29 +82,32 @@ export default {
                 this.emailRules.every(rule => rule(this.email) === true) &&
                 this.passwordRules.every(rule => rule(this.password) === true) &&
                 this.confirmPassRules.every(rule => rule(this.confirmpass) == true);
-        }
+        },
+        ...mapState({
+            showLoading: (state) => state.showLoading,
+        }),
     },
     methods: {
-        ...mapActions(['registerUser']),
-        async signupForm() {
-            let result = await this.registerUser({
-                name: this.name,
-                email: this.email,
-                password: this.password,
-            })
-            if (result.status == 201) {
-                this.$router.push('/loginview');
-            }
-            else {
-                console.error('API Error:', result);
+        ...mapMutations({
+            mutateSpinner: 'SPINNER_MUTATION',
+        }),
+        ...mapActions(['SIGNUP_ACTION']),
+        async onSignup() {
+            this.mutateSpinner(true);
+            if (this.isFormValid) {
+                const userData = {
+                    name: this.name,
+                    email: this.email,
+                    password: this.password,
+                };
+
+                console.log('User Data:', userData);
+
+                await this.SIGNUP_ACTION(userData);
+
+                this.mutateSpinner(false);
             }
         }
     }
 }
 </script>
-
-<style scoped>
-.v-card {
-    margin: auto;
-}
-</style>

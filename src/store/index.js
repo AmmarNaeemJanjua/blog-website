@@ -1,8 +1,18 @@
 import { createStore } from "vuex";
-import register from "./modules/register";
+import auth from "./modules/auth";
 
 export default createStore({
   modules: {
-    register,
+    auth,
   },
+  state() {
+    return {
+      showLoading: false,
+    };
+  },
+  mutations: {
+    SPINNER_MUTATION(state, payload){
+      state.showLoading = payload;
+    }
+  }
 });
