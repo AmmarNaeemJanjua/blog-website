@@ -1,4 +1,5 @@
 import { BLOGS } from "@/constants/api";
+import axios from "axios";
 
 const state = {
   blogs: [],
@@ -12,7 +13,6 @@ const actions = {
   async fetchBlogs({ commit }) {
     try {
       const response = await axios.get(BLOGS);
-      //console.log(response.data) 
       commit('setBlogs', response.data);
       return response;
     } catch (error) {

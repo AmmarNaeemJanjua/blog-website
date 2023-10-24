@@ -13,7 +13,7 @@
       <v-btn text class="custom-text">Register</v-btn>
       <p text class="custom-text">|</p>
       <v-icon
-        class="mr-8 ml-3 pt-1"
+        class="mr-12 ml-3 pt-1"
         icon="mdi-magnify"
         color="white"
         size="x-small"

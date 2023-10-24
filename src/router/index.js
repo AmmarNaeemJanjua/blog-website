@@ -16,6 +16,18 @@ const routes = [
         name: 'Register',
         component: () => import ('@/views/Register.vue')
       },
+      {
+        
+        path: 'blogpage/:id',
+        name: 'Blogpage',
+        component: () => import ('./../components/SpecificBlogPage.vue')
+      },
+      {
+        path: 'new-blog',
+        name: 'AddBlogPage',
+        component: () => import ('./../components/AddBlogPage.vue')
+      },
+
 
     ],
   },
