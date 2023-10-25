@@ -1,4 +1,4 @@
-import { ALL_USERS } from "@/constants/api";
+import { ALL_USERS, DELETE_USER } from "@/constants/api";
 
 const state = {
   users: [],

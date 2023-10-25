@@ -83,13 +83,13 @@ export default {
                 await this.LOGIN_ACTION(userData);
 
                 this.mutateSpinner(false);
-                
-                if (this.email === 'admin@admin.com' && this.password === 'password'){
+
+                if (this.email === 'admin@admin.com' && this.password === 'password') {
                     this.$router.push('/admin')
                 } else {
                     this.$router.push('/')
                 }
-                
+
             } catch (error) {
                 this.mutateSpinner(false);
                 console.error('Login error:', error);
@@ -98,3 +98,5 @@ export default {
     }
 }
 </script>
+
+<style scoped></style>

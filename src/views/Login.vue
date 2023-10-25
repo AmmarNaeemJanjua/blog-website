@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <LoginForm />     
+        <LoginForm />
     </v-app>
 </template>
 

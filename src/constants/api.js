@@ -10,3 +10,8 @@ export const LOGIN = '/login';
 export const ALL_USERS = '/admin/get-all-users';
 
 export const DELETE_USER = '/admin/delete-user';
+
+// Admin api routes for mblogs.js
+export const ALL_BLOGS = '/admin/all-blogs';
+
+export const UPDATE_STATUS = '/admin/update-blog-status';
