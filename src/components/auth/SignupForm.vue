@@ -39,7 +39,7 @@
 
 <script>
 import { mapState, mapActions, mapMutations } from 'vuex';
-import TheLoader from '@/components/TheLoader.vue';
+import TheLoader from '@/components/auth/TheLoader.vue';
 
 export default {
     name: "SignupForm",

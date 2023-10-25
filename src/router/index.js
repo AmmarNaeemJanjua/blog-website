@@ -34,17 +34,17 @@ const routes = [
       {
         path: '',
         name: 'LandingPage',
-        component: () => import('@/components/AdminLanding.vue')
+        component: () => import('@/components/admin/AdminLanding.vue')
       },
       {
         path: '/manageblogs',
         name: 'ManageBlogs',
-        component: () => import('@/components/ManageBlogs.vue'),
+        component: () => import('@/components/admin/ManageBlogs.vue'),
       },
       {
         path: '/allusers',
         name: 'AllUsers',
-        component: () => import('@/components/AllUsers.vue'),
+        component: () => import('@/components/admin/AllUsers.vue'),
       },
     ],
   },
