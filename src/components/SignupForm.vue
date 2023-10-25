@@ -48,8 +48,10 @@ export default {
     },
     data() {
         return {
+            name: '',
             email: '',
             password: '',
+            confirmpass: '',
         }
     },
     computed: {

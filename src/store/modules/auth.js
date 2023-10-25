@@ -23,6 +23,7 @@ const actions = {
     let response = "";
     try {
       response = await axios.post(REGISTER, postData);
+      console.log(response)
     } catch (err) {
       console.log(err.response);
     }
@@ -40,7 +41,7 @@ const actions = {
       console.log(err.response);
     }
 
-    if (response.status === 200){
+    if (response.status === 201){
       context.commit('SET_USER_DATA', {
         name: response.data.name,
         email: response.data.email,
