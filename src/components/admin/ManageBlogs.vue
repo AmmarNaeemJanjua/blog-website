@@ -37,13 +37,13 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
     computed: {
-        ...mapGetters("blogs", ['GET_BLOGS']),
+        ...mapGetters("mblogs", ['GET_BLOGS']),
         blogs() {
             return this.GET_BLOGS;
         },
     },
     methods: {
-        ...mapActions("blogs", ['FETCH_BLOGS', 'APPROVE_BLOG']),
+        ...mapActions("mblogs", ['FETCH_BLOGS', 'APPROVE_BLOG']),
 
         async approveBlog(blog) {
             const blogId = blog.id;
