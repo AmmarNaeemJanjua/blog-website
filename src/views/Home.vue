@@ -1,7 +1,7 @@
 <template>
-  <Posts/>
+  <div>Home</div>
 </template>
 
 <script setup>
-  import Posts from '@/components/Posts.vue'
+
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app color="deep-purple-darken-3">
+  <v-app-bar app color="deep-purple-darken-2">
 
     <v-container>
       <v-row align="center">
@@ -35,9 +35,7 @@ export default {
     };
   },
   computed: {
-    user() {
-      return localStorage.getItem('user-info');
-    },
+
   },
   methods: {
     
