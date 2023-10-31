@@ -1,8 +1,8 @@
 <template>
-    <v-container>
+    <v-container class="pa-0">
         <div class="d-flex justify-center align-center" style="height: 100vh;">
             <div>
-                <v-card>
+                <v-card min-width="809px">
                     <v-card-title>Manage Blogs</v-card-title>
                     <v-table fixed-header height="450px">
                         <thead>
@@ -22,7 +22,7 @@
                                 <td class="text-center">{{ blog.category_name }}</td>
                                 <td class="text-center">
                                     <v-button @click="approveBlog(blog)">
-                                        <v-icon :color="blog.isApproved ? 'blue' : 'red'" style="cursor: pointer">
+                                        <v-icon :color="blog.isApproved ? 'green' : 'red'" style="cursor: pointer">
                                             {{ blog.isApproved ? 'mdi-check-circle' : 'mdi-close-octagon' }}
                                         </v-icon>
                                     </v-button>
@@ -51,8 +51,9 @@ export default {
 
         async approveBlog(blog) {
             const blogId = blog.id;
+            const changeStatus = !blog.isApproved;
             
-            await this.APPROVE_BLOG(blogId);
+            await this.APPROVE_BLOG({blogId, changeStatus});
             this.FETCH_BLOGS();
         }
     },

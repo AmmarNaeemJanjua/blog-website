@@ -1,7 +1,7 @@
 <template>
-    <v-container>
+    <v-container class="pa-0">
         <div class="d-flex justify-center align-center" style="height: 100vh;">
-            <v-card>
+            <v-card min-width="809px">
                 <v-card-title>User Details</v-card-title>
                 <v-table fixed-header height="450px">
                     <thead>

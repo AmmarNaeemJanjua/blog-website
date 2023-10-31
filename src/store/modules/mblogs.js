@@ -24,12 +24,12 @@ const actions = {
     }
   },
 
-  async APPROVE_BLOG(context, blogId) {
+  async APPROVE_BLOG(context, {blogId, changeStatus}) {
     try {
       await axios.patch(
         `${UPDATE_STATUS}/${blogId}`,
         {
-          "isApproved": true,
+          "isApproved": changeStatus,
         },
         {
           headers: {
@@ -37,8 +37,6 @@ const actions = {
           },
         }
       );
-      context.commit("BLOG_STATUS", blogId);
-      return response;
     } catch (err) {
       console.log("Error approving blog: ", err.response);
     }
@@ -48,16 +46,6 @@ const actions = {
 const mutations = {
   SET_BLOGS(state, blog) {
     state.blog = blog;
-  },
-
-  BLOG_STATUS(state, blogId) {
-    // Find the index of the blog in the state array
-    const blogIndex = state.blog.findIndex((blog) => blog.id === blogId);
-
-    if (blogIndex !== -1) {
-      // Update the 'isApproved' status to true
-      state.blog[blogIndex].isApproved = true;
-    }
   },
 };
 

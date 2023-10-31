@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <v-container class="pa-0">
         <v-row align="center" style="height: 100vh;" justify="center">
             <v-col v-for="(card, index) in cards" :key="index" cols="12" xs="8" sm="6" md="5" lg="4">
                 <v-hover v-slot="{ isHovering, props }">

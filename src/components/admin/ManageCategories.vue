@@ -1,9 +1,9 @@
 <template>
-    <v-container>
+    <v-container class="pa-0">
         <div class="d-flex flex-column justify-center align-center" style="height: 100vh;">
             <div>
                 <v-btn class="mb-4" color="indigo" @click="openAddCategoryDialog">ADD CATEGORY</v-btn>
-                <v-card min-width="600px">
+                <v-card min-width="809px">
                     <v-card-title>Manage Categories</v-card-title>
                     <v-table fixed-header height="450px">
                         <thead>
