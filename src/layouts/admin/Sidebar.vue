@@ -10,6 +10,7 @@
         <v-list density="compact" nav>
             <v-list-item to="/manageblogs" prepend-icon="mdi-post" title="Manage Blogs"></v-list-item>
             <v-list-item to="/allusers" prepend-icon="mdi-account-multiple" title="All Users"></v-list-item>
+            <v-list-item to="/managecategories" prepend-icon="mdi-shape-plus" title="Manage Categories"></v-list-item>
         </v-list>
 
         <template v-slot:append>

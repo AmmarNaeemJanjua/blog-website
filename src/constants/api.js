@@ -15,3 +15,8 @@ export const DELETE_USER = '/admin/delete-user';
 export const ALL_BLOGS = '/admin/all-blogs';
 
 export const UPDATE_STATUS = '/admin/update-blog-status';
+
+// Admin api routes for mcategories.js
+export const ALL_CATEGORIES = '/admin/categories';
+
+export const ADD_CATEGORY = '/admin/add-category';

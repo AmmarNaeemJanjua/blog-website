@@ -3,10 +3,10 @@
         <div class="d-flex justify-center align-center" style="height: 100vh;">
             <v-card>
                 <v-card-title>User Details</v-card-title>
-                <v-table fixed-header max-height="450px">
+                <v-table fixed-header height="450px">
                     <thead>
                         <tr>
-                            <th class="text-center">User ID</th>
+                            <th class="text-center">Sr#</th>
                             <th class="text-center">Name</th>
                             <th class="text-center">Email</th>
                             <th class="text-center">Created At</th>
@@ -14,8 +14,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="user in users" :key="user.id">
-                            <td class="text-center">{{ user.id }}</td>
+                        <tr v-for="(user, index) in users" :key="user.id">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td class="text-center">{{ user.name }}</td>
                             <td class="text-center">{{ user.email }}</td>
                             <td class="text-center">{{ user.created_at }}</td>

@@ -17,7 +17,6 @@ const actions = {
           Authorization: `Bearer 26|hdbxgIuLcZYeClFgYNu6UWefzRkWA5JzgGm4lRr739ea4c9a`,
         },
       });
-      console.log(response);
       context.commit("SET_BLOGS", response.data);
       return response;
     } catch (err) {
@@ -29,7 +28,9 @@ const actions = {
     try {
       await axios.patch(
         `${UPDATE_STATUS}/${blogId}`,
-        {},
+        {
+          "isApproved": true,
+        },
         {
           headers: {
             Authorization: `Bearer 26|hdbxgIuLcZYeClFgYNu6UWefzRkWA5JzgGm4lRr739ea4c9a`,

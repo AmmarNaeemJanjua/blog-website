@@ -2,10 +2,11 @@ import { createStore } from "vuex";
 import auth from "./modules/auth";
 import users from "./modules/users";
 import mblogs from "./modules/mblogs";
+import mcategories from "./modules/mcategories";
 
 export default createStore({
   modules: {
-    auth, users, mblogs,
+    auth, users, mblogs, mcategories,
   },
   state() {
     return {
